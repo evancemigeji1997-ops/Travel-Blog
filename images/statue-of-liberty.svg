@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 360" width="300" height="360" role="img" aria-labelledby="statueTitle">
+  <title id="statueTitle">Stylized illustration of the Statue of Liberty, New York</title>
+  <!-- Sky background -->
+  <rect x="0" y="0" width="300" height="360" fill="#cfe0f7"/>
+  <!-- Water -->
+  <rect x="0" y="300" width="300" height="60" fill="#7fa8c9"/>
+
+  <!-- Pedestal -->
+  <rect x="115" y="260" width="70" height="45" fill="#9b9b9b" stroke="#6b6b6b" stroke-width="2"/>
+
+  <!-- Robed figure body -->
+  <path d="M 130 260 C 125 200 120 160 150 140 C 180 160 175 200 170 260 Z" fill="#6fae8e" stroke="#4d7f66" stroke-width="2"/>
+
+  <!-- Head -->
+  <circle cx="150" cy="120" r="16" fill="#6fae8e" stroke="#4d7f66" stroke-width="2"/>
+
+  <!-- Crown spikes -->
+  <g fill="#5c9c7c" stroke="#4d7f66" stroke-width="1.5">
+    <polygon points="150,95 145,108 155,108"/>
+    <polygon points="135,100 133,112 143,110"/>
+    <polygon points="165,100 167,112 157,110"/>
+  </g>
+
+  <!-- Raised arm holding the torch -->
+  <path d="M 168 150 C 190 140 200 120 198 100" fill="none" stroke="#4d7f66" stroke-width="8" stroke-linecap="round"/>
+  <!-- Torch flame -->
+  <ellipse cx="198" cy="90" rx="7" ry="12" fill="#f5c542" stroke="#c99a1e" stroke-width="1.5"/>
+  <rect x="194" y="96" width="8" height="10" fill="#c9a15a"/>
+
+  <!-- Tablet held in front -->
+  <rect x="118" y="165" width="16" height="22" fill="#e9e2c9" stroke="#4d7f66" stroke-width="1.5" transform="rotate(-15 126 176)"/>
+
+  <!-- caption -->
+  <text x="150" y="352" font-family="Arial, sans-serif" font-size="14" fill="#22415c" text-anchor="middle">Statue of Liberty</text>
+</svg>

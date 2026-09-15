@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel Blog | Travel Stories</title>
+ 
+<style>
+  /*
+    ============================================================
+    GLOBAL / RESET STYLES
+    Purpose: same reasoning as the homepage file -- one shared
+    font and box-sizing model so the table and layout measurements
+    below behave predictably across browsers.
+    ============================================================
+  */
+  * {
+    box-sizing: border-box;
+  }
+ 
+  html {
+    scroll-behavior: smooth; /* animate the "jump to section" links */
+  }
+ 
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f7f9fb;
+    color: #2c3e50;
+    line-height: 1.6;
+  }
+ 
+  header {
+    text-align: center;
+    padding: 40px 20px 10px;
+  }
+ 
+  header h1 {
+    color: #1b2a3a;
+    margin-bottom: 6px;
+  }
+ 
+  header p {
+    max-width: 620px;
+    margin: 0 auto;
+    color: #5a6a7a;
+  }
+ 
+  main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+ 
+  /*
+    ============================================================
+    DESTINATIONS TABLE
+    Purpose: left column names the destination, right column
+    shows a clickable image of its signature attraction. The
+    image is wrapped in an <a> so clicking the picture -- not
+    just a text link -- triggers the jump, matching the
+    assignment's "on clicking the attraction" requirement.
+    ============================================================
+  */
+  .destinations-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0 40px;
+    /* Colorful outer border, per the CSS exercise requirement. */
+    border: 3px solid #2980b9;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  }
+ 
+  .destinations-table caption {
+    caption-side: top;
+    text-align: left;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #1b2a3a;
+  }
+ 
+  .destinations-table th,
+  .destinations-table td {
+    border: 1px solid #bcd4e6; /* colorful inner borders */
+    padding: 14px 18px; /* padding so the table is easy to read */
+    text-align: left;
+    vertical-align: middle;
+  }
+ 
+  .destinations-table thead th {
+    background-color: #2980b9;
+    color: #ffffff;
+    font-weight: bold; /* bold headers */
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+  }
+ 
+  /* Alternating row colors ("zebra striping") for readability. */
+  .destinations-table tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+  }
+ 
+  .destinations-table tbody tr:nth-child(even) {
+    background-color: #eaf2fa;
+  }
+ 
+  .destinations-table tbody tr:hover {
+    background-color: #d7e9f7;
+  }
+ 
+  .attraction-link {
+    display: inline-block;
+    line-height: 0; /* removes the small gap under inline images */
+  }
+ 
+  .attraction-img {
+    width: 140px;
+    height: auto;
+    border-radius: 6px;
+    border: 2px solid #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    /* Animate opacity smoothly, per the "hover effects that
+       change the image opacity" requirement. */
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+ 
+  .attraction-img:hover {
+    opacity: 0.65;
+    transform: scale(1.03);
+  }
+ 
+  /*
+    ============================================================
+    DETAIL SECTIONS (the "bottom of the page" jump targets)
+    Purpose: each section corresponds to one table row; clicking
+    that row's image scrolls down here. scroll-margin-top keeps
+    the section's heading visible just below the viewport top
+    instead of flush against the very edge.
+    ============================================================
+  */
+  .destination-detail {
+    background-color: #ffffff;
+    border-left: 8px solid #2980b9;
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    scroll-margin-top: 24px;
+  }
+ 
+  .destination-detail h2 {
+    margin-top: 0;
+    color: #2980b9;
+  }
+ 
+  .back-to-table {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 0.85rem;
+    color: #8492a3;
+    text-decoration: none;
+  }
+ 
+  .back-to-table:hover {
+    text-decoration: underline;
+  }
+ 
+  footer {
+    text-align: center;
+    color: #8492a3;
+    font-size: 0.85rem;
+    padding: 10px 20px 30px;
+  }
+</style>
+</head>
+ 
+<body>
+ 
+  <a id="top-of-page"></a>
+ 
+  <header>
+    <h1>Travel Stories</h1>
+    <p>Three unforgettable destinations, each paired with its most
+       famous attraction. Click any picture to jump straight to that
+       destination's story at the bottom of the page.</p>
+  </header>
+ 
+  <main>
+ 
+    <table class="destinations-table">
+      <caption>Featured Travel Destinations</caption>
+      <thead>
+        <tr>
+          <th scope="col">Destination</th>
+          <th scope="col">Attraction</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Paris, France</td>
+          <td>
+            <a href="#paris-story" class="attraction-link" aria-label="Jump to the Paris story">
+              <img src="images/eiffel-tower.svg" alt="Illustration of the Eiffel Tower" class="attraction-img">
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td>Rome, Italy</td>
+          <td>
+            <a href="#rome-story" class="attraction-link" aria-label="Jump to the Rome story">
+              <img src="images/colosseum.svg" alt="Illustration of the Colosseum" class="attraction-img">
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td>New York City, USA</td>
+          <td>
+            <a href="#nyc-story" class="attraction-link" aria-label="Jump to the New York City story">
+              <img src="images/statue-of-liberty.svg" alt="Illustration of the Statue of Liberty" class="attraction-img">
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+ 
+    <!-- Spacer so the "jump" is visually obvious even on a tall
+         screen -- it pushes the detail sections further down the
+         page, matching the assignment's "jump to bottom of the
+         page" requirement. -->
+    <div style="height: 30vh;" aria-hidden="true"></div>
+ 
+    <h2 style="text-align:center; color:#1b2a3a;">Destination Stories</h2>
+ 
+    <section id="paris-story" class="destination-detail">
+      <h2>Paris, France &mdash; The Eiffel Tower</h2>
+      <p>Built by engineer Gustave Eiffel for the 1889 World's Fair, the
+         Eiffel Tower stands over 300 meters tall and was once the
+         tallest man-made structure on Earth  (Encyclopædia Britannica, 2026). Today it is the symbol of
+         Paris, drawing millions of visitors who climb or take a lift
+         to its observation decks for sweeping views over the Seine and
+         the city's rooftops.</p>
+      <a href="#top-of-page" class="back-to-table">&#8593; Back to table</a>
+    </section>
+ 
+    <section id="rome-story" class="destination-detail">
+      <h2>Rome, Italy &mdash; The Colosseum</h2>
+      <p>Completed around 80 AD, the Colosseum was the largest
+         amphitheater ever built in the Roman Empire, seating tens of
+         thousands of spectators for gladiator contests and public
+         spectacles (Britannica, 2026). Its ring of arches has survived nearly two
+         thousand years and remains one of the most recognizable
+         landmarks of the ancient world.</p>
+      <a href="#top-of-page" class="back-to-table">&#8593; Back to table</a>
+    </section>
+ 
+    <section id="nyc-story" class="destination-detail">
+      <h2>New York City, USA &mdash; The Statue of Liberty</h2>
+      <p>A gift from France dedicated in 1886, the Statue of Liberty
+         stands on Liberty Island in New York Harbor holding a torch
+         and a tablet inscribed with the date of American independence (PathCulture, n.d.).
+         It has long welcomed travelers arriving by sea and remains a
+         lasting symbol of freedom and opportunity.</p>
+      <a href="#top-of-page" class="back-to-table">&#8593; Back to table</a>
+    </section>
+ 
+  </main>
+ 
+  <footer>
+    <p>Travel Blog &mdash; Enjoy the World</p>
+  </footer>
+ 
+</body>
+</html>
+ 
